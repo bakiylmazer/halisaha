@@ -377,8 +377,18 @@ function displayTeams (team1, team2) {
 }
 
 function updateSelectedPlayerCount() {
+  const selectedPlayerCountElement = document.getElementById('selectedPlayerCount');
   const selectedPlayersCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
-  document.getElementById('selectedPlayerCount').textContent = selectedPlayersCount;
+  document.getElementById('selectedPlayerCount').textContent = "Seçilen oyuncu sayısı: "+  selectedPlayersCount + "/14";
+
+  if (selectedPlayersCount > 14) {
+    selectedPlayerCountElement.classList.add('kirmizi');
+
+  } else {
+    
+    selectedPlayerCountElement.classList.remove('kirmizi');
+  }
+ 
 }
 
 function renderPlayerSelection(players) {
